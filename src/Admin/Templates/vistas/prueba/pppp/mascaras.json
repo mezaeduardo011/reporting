@@ -1,0 +1,5 @@
+{
+    "mascaras" : [
+        {"type":"varchar","mascaraJS":"XltBLXowLTlcXC5fLV0rQFtBLXowLTldW0EtejAtOS1dKihcXC5bQS16MC05Xy1dKykqXFwuKFtBLXpdezIsNn0pJA==","mascaraPHP":"XltBLXowLTlcLl8tXStAW0EtejAtOV1bQS16MC05LV0qKFwuW0EtejAtOV8tXSspKlwuKFtBLXpdezIsNn0pJA==","mensaje":"Debe ingresar un correo valido, ejemplo: gbolivar@dominio.com.ve","input":"correo","campo":"nombre"},{"type":"varchar","mascaraJS":"XlthLXpBLVogXSsk","mascaraPHP":"XlthLXpBLVogXSsk","mensaje":"Debe ingresar solo texto acepta espacios en blanco, ejemplo: Mi mama me mima","input":"letraSpacio","campo":"apellido"}
+    ]
+}

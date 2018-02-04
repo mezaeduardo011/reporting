@@ -1,0 +1,5 @@
+{
+    "mascaras" : [
+        {"type":"int","mascaraJS":"XlswLTldKyQ=","mascaraPHP":"XlswLTldKyQ=","mensaje":"Por favor ingresar solo números, ejemplo 1980","input":"int","campo":"tipo_servicio_id"},{"type":"int","mascaraJS":"XlswLTldKyQ=","mascaraPHP":"XlswLTldKyQ=","mensaje":"Por favor ingresar solo números, ejemplo 1980","input":"int","campo":"productos_id"},{"type":"varchar","mascaraJS":"XlthLXpBLVogXSsk","mascaraPHP":"XlthLXpBLVogXSsk","mensaje":"Debe ingresar solo texto acepta espacios en blanco, ejemplo: Mi mama me mima","input":"letraSpacio","campo":"descripcion"},{"type":"varchar","mascaraJS":"XlthLXpBLVogXSsk","mascaraPHP":"XlthLXpBLVogXSsk","mensaje":"Debe ingresar solo texto acepta espacios en blanco, ejemplo: Mi mama me mima","input":"letraSpacio","campo":"codigo"}
+    ]
+}

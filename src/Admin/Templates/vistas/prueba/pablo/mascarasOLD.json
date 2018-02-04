@@ -1,0 +1,5 @@
+{
+    "mascaras" : [
+        {"type":"varchar","mascara":"XltBLXowLTlcXC5fLV0rQFtBLXowLTldW0EtejAtOS1dKihcXC5bQS16MC05Xy1dKykqXFwuKFtBLXpdezIsNn0pJA==","mensaje":"Debe ingresar un correo valido, ejemplo: gbolivar@dominio.com.ve","input":"correo","campo":"apellido"},{"type":"varchar","mascara":"Xig/OjI1WzAtNV18MlswLTRdXFxkfDFcXGRcXGR8WzEtOV1cXGR8XFxkKSg/OlsuXSg/OjI1WzAtNV18MlswLTRdXFxkfDFcXGRcXGR8WzEtOV1cXGR8XFxkKSl7M30k","mensaje":"Debe ingresar una IPV4 valida, ejemplo 192.169.123.10","input":"ipv4","campo":"nombre"}
+    ]
+}

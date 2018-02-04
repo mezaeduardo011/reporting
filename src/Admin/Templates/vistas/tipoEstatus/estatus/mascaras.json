@@ -1,0 +1,5 @@
+{
+    "mascaras" : [
+        {"type":"varchar","mascaraJS":"XiMoPzooPzpbYS1mXFxkXXszfSl7MSwyfSkk","mascaraPHP":"XiMoPzooPzpbYS1mXGRdezN9KXsxLDJ9KSQ=","mensaje":"Debe ingresar un color correcto, ejemplo: (#333, 333, #333333 o 333333) con el símbolo # opcional","input":"color","campo":"color"},{"type":"varchar","mascaraJS":"XlthLXpBLVogXSsk","mascaraPHP":"XlthLXpBLVogXSsk","mensaje":"Debe ingresar solo texto acepta espacios en blanco, ejemplo: Mi mama me mima","input":"letraSpacio","campo":"nombre"}
+    ]
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--pro-->
+<html>
+<head>
+	<title>Configuration from JSON - Common JSON</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/fonts/font_roboto/roboto.css"/>
+	<link rel="stylesheet" href="https://dhtmlx.com/docs/products/codebase/dhtmlx.css" type="text/css"> 
+	<script src="https://dhtmlx.com/docs/products/codebase/dhtmlx.js" type="text/javascript"></script>
+
+	<script> 
+		var myGrid;
+		function doOnLoad(){
+
+
+			var myLayout = new dhtmlXLayoutObject("gridbox", "1C");
+			myLayout.cells("a").setText("Grid demo with sorting, filtering, paging and cell editing features");
+			myLayout.cells("a").attachStatusBar({
+				text: "<div id='pagingArea'></div>",
+				paging: true
+			});
+
+			var myGrid = myLayout.cells("a").attachGrid();
+			//myGrid = new dhtmlXGridObject('gridbox');
+			myGrid.setImagePath("../../../codebase/imgs/");
+			myGrid.attachHeader("#text_filter,#text_filter,&nbsp;,&nbsp;,#select_filter,#text_filter");
+			myGrid.enablePaging(true, 10, 3, "pagingArea");
+			myGrid.setPagingSkin("toolbar");
+			myGrid.enableAutoWidth(true);
+			myGrid.enableMultiselect(true);			
+			myGrid.init();
+			myGrid.enableSmartRendering(true);
+			//myGrid.enableAccessKeyMap(true);
+			//myGrid.load("../common/gridConfig2.json", "js");
+			//mygrid.enableSmartRendering(true);
+			gridQString = "getGridRecords2.php"; // save query string to global variable (see step 5)
+			myGrid.load(gridQString,'json');
+		}
+		
+	</script>
+</head>
+<body onload="doOnLoad();">
+	
+	<div id="gridbox" style="width:900px; height:450px; background-color:white"></div>
+	
+</body>
+</html>

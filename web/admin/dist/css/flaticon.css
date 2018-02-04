@@ -1,0 +1,65 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 06/09/2016 17:14
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: ;
+font-style: normal;
+margin-left:;
+}
+
+.flaticon-avatar:before { content: "\f100"; }
+.flaticon-avatar-1:before { content: "\f101"; }
+.flaticon-block:before { content: "\f102"; }
+.flaticon-calendar:before { content: "\f103"; }
+.flaticon-calendar-1:before { content: "\f104"; }
+.flaticon-cancel:before { content: "\f105"; }
+.flaticon-circle:before { content: "\f106"; }
+.flaticon-clock:before { content: "\f107"; }
+.flaticon-cooker:before { content: "\f108"; }
+.flaticon-download:before { content: "\f109"; }
+.flaticon-envelope:before { content: "\f10a"; }
+.flaticon-food:before { content: "\f10b"; }
+.flaticon-house:before { content: "\f10c"; }
+.flaticon-login:before { content: "\f10d"; }
+.flaticon-medical:before { content: "\f10e"; }
+.flaticon-medical-1:before { content: "\f10f"; }
+.flaticon-next:before { content: "\f110"; }
+.flaticon-padlock:before { content: "\f111"; }
+.flaticon-people:before { content: "\f112"; }
+.flaticon-pie-chart:before { content: "\f113"; }
+.flaticon-power-button:before { content: "\f114"; }
+.flaticon-printer:before { content: "\f115"; }
+.flaticon-reload:before { content: "\f116"; }
+.flaticon-report:before { content: "\f117"; }
+.flaticon-report-1:before { content: "\f118"; }
+.flaticon-report-2:before { content: "\f119"; }
+.flaticon-report-3:before { content: "\f11a"; }
+.flaticon-round-help-button:before { content: "\f11b"; }
+.flaticon-searching-file-interface-symbol:before { content: "\f11c"; }
+.flaticon-settings:before { content: "\f11d"; }
+.flaticon-social:before { content: "\f11e"; }
+.flaticon-speedometer:before { content: "\f11f"; }
+.flaticon-television:before { content: "\f120"; }
+.flaticon-tool:before { content: "\f121"; }

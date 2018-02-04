@@ -1,0 +1,5 @@
+{
+    "mascaras" : [
+        {"type":"int","mascaraJS":"XlswLTldKyQ=","mascaraPHP":"XlswLTldKyQ=","mensaje":"Por favor ingresar solo números, ejemplo 1980","input":"int","campo":"tipo_documento"},{"type":"int","mascaraJS":"XlswLTldKyQ=","mascaraPHP":"XlswLTldKyQ=","mensaje":"Por favor ingresar solo números, ejemplo 1980","input":"int","campo":"created_usuario_id"},{"type":"int","mascaraJS":"XlswLTldKyQ=","mascaraPHP":"XlswLTldKyQ=","mensaje":"Por favor ingresar solo números, ejemplo 1980","input":"int","campo":"updated_usuario_id"}
+    ]
+}

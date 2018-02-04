@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Router configuration system-->
+<route>
+    <link>
+        <name>/home</name>
+        <controller>home</controller>
+        <method>runIndex</method>
+        <request>GET</request>
+    </link>
+    <link>
+        <name>/getAllElements</name>
+        <controller>elements</controller>
+        <method>getAllElements</method>
+        <request>GET</request>
+    </link>
+    <link>
+        <name>/getPropertiesDefault</name>
+        <controller>elements</controller>
+        <method>getPropertiesDefault</method>
+        <request>GET</request>
+    </link>  
+    <link>
+        <name>/getPropertiesByFatherId</name>
+        <controller>elements</controller>
+        <method>getPropertiesByFatherId</method>
+        <request>GET</request>
+    </link> 
+    <link>
+        <name>/getValuesSelectById</name>
+        <controller>elements</controller>
+        <method>getValuesSelectById</method>
+        <request>GET</request>
+    </link>      
+    <link>
+        <name>/staticTextModal</name>
+        <controller>modals</controller>
+        <method>staticText</method>
+        <request>GET</request>
+    </link>    
+    <link>
+        <name>/createConnection</name>
+        <controller>modals</controller>
+        <method>createConnection</method>
+        <request>GET</request>
+    </link>
+    <link>
+        <name>/testConnection</name>
+        <controller>connection</controller>
+        <method>testConnection</method>
+        <request>POST</request>
+    </link>
+
+    <link>
+        <name>/useConnection</name>
+        <controller>connection</controller>
+        <method>useConnection</method>
+        <request>POST</request>
+    </link>
+
+    <link>
+        <name>/saveConnection</name>
+        <controller>connection</controller>
+        <method>saveConnection</method>
+        <request>POST</request>
+    </link>
+    <link>
+        <name>/getTables</name>
+        <controller>connection</controller>
+        <method>getTables</method>
+        <request>GET</request>
+    </link>
+
+    <link>
+        <name>/tables</name>
+        <controller>modals</controller>
+        <method>tables</method>
+        <request>GET</request>
+    </link>
+
+    <link>
+        <name>/addTag</name>
+        <controller>jrxml</controller>
+        <method>addTag</method>
+        <request>POST</request>
+    </link>
+
+    <link>
+        <name>/readBase</name>
+        <controller>jrxml</controller>
+        <method>readBase</method>
+        <request>POST</request>
+    </link>
+
+</route>

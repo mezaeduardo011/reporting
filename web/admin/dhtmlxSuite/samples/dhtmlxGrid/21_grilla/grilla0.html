@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loading from xml</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="http://cdn.dhtmlx.com/edge/dhtmlx.css" type="text/css"> 
+	<script src="http://cdn.dhtmlx.com/edge/dhtmlx.js" type="text/javascript"></script>
+	<script>
+		function doOnLoad(){
+			var gridQString = "";
+			var mygrid = new dhtmlXGridObject('gridbox');
+			mygrid.setImagePath("../../../codebase/imgs/");
+			mygrid.setHeader("Nombre,Perfil,Roles");
+			mygrid.setInitWidths("150,150,*");
+			mygrid.setColAlign("center,center,center");
+			mygrid.setSkin("web");
+			mygrid.init();
+			mygrid.enableSmartRendering(true);
+			gridQString = "getGridRecords2.php"; // save query string to global variable (see step 5)
+			mygrid.load(gridQString);
+		
+		}
+
+		function applyFilter(){
+			var mygrid = new dhtmlXGridObject('gridbox');
+		    mygrid.clearAll(); //remove all data
+		    //save query string in global variable (see step 5 for details)
+		    gridQString = "getGridRecords2.php?name_mask="
+		      +document.getElementById("nm_mask").value;
+		    mygrid.load(gridQString); // load new dataset from sever with additional param
+		}
+
+		/*
+
+		
+	dhtmlxEvent(window, "load", function(){
+		
+		var myLayout = new dhtmlXLayoutObject("layoutObj", "1C");
+		myLayout.cells("a").setText("Grid demo with sorting, filtering, paging and cell editing features");
+		myLayout.cells("a").attachStatusBar({
+			text: "<div id='pagingArea'></div>",
+			paging: true
+		});
+		
+		var myGrid = myLayout.cells("a").attachGrid();
+		myGrid.setImagePath("../codebase/imgs/")
+		myGrid.enablePaging(true, 10, 3, "pagingArea");
+		myGrid.setPagingSkin("toolbar");
+		myGrid.load("xml/grid.xml");
+	});
+
+
+		*/
+	</script>
+</head>
+<body onload="doOnLoad()" >
+	<h1>Loading from xml</h1>
+	<p>Grid allows to load data from xml file and object.</p>
+	<div id="gridbox" style="width: 810px;height: 100px;margin:0 auto;" class="dhxlayout_base_material"></div>
+	<br>
+	<input type="Text" id="nm_mask">
+<input type="Button" value="Filter" onclick="applyFilter()">
+</body>
+</html>
+

@@ -1,0 +1,282 @@
+{
+   head:[
+      { id:"sales",    width:70,  type:"dyn",   align:"right",  sort:"int", value:"Sales" },
+      { id:"title",    width:150, type:"ed",    align:"left",   sort:"str", value:"Book Title" },
+      { id:"author",   width:100, type:"ed",    align:"left",   sort:"str", value:"Author" },
+      { id:"price",    width:80,  type:"price", align:"right",  sort:"str", value:"Price" },
+      { id:"instore",  width:80,  type:"ch",    align:"center", sort:"str", value:"In Store" },
+      { id:"shipping", width:100, type:"co",    align:"left",   sort:"str", value:"Shipping" }
+   ],
+   data:[
+     { 
+      id:1001, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1002, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1003, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1004, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1005, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1006, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1007, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1008, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1009, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1010, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1011, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1012, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1013, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1014, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1015, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1016, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1017, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1018, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1019, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1020, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1021, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1022, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1023, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1024, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1024, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1025, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1026, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   },
+   { 
+      id:1027, 
+      sales:"100",
+      title:"A Time to Kill",
+      author:"John Grisham",
+      price:"12.99",
+      instore:"1",
+      shipping:"05/01/1998"
+   },
+   {
+      id:1028, 
+      sales:"1000",
+      title:"Blood and Smoke",
+      author:"Stephen King",
+      price:"0",
+      instore:"1",
+      shipping:"01/01/2000"
+   },
+   {
+      id:1029, 
+      sales:"-200",
+      title:"The Rainmaker",
+      author:"John Grisham",
+      price:"7.99",
+      instore:"0",
+      shipping:"12/01/2001"
+   }
+]
+}

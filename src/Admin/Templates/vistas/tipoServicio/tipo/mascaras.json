@@ -1,0 +1,5 @@
+{
+    "mascaras" : [
+        {"type":"varchar","mascaraJS":"XlthLXpBLVogXSsk","mascaraPHP":"XlthLXpBLVogXSsk","mensaje":"Debe ingresar solo texto acepta espacios en blanco, ejemplo: Mi mama me mima","input":"letraSpacio","campo":"descripcion"}
+    ]
+}
