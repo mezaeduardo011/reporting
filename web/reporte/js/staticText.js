@@ -33,10 +33,14 @@ Report.StaticText = {
 
         element.onmousedown = function (e)
         {
-            Report.StaticText.idStaticText = $(this).attr('id');
-            Report.StaticText.getMouseDown(e,$(this).data("idproperties"));
-            ViewProperties.containmentFather = element.parentNode.id;
-            e.stopPropagation();
+                Report.StaticText.idStaticText = $(this).attr('id');
+                Report.StaticText.getMouseDown(e, $(this));
+                ViewProperties.containmentFather = element.parentNode.id;
+                e.stopPropagation();
+        }
+
+        element.onmouseup = function (ev) {
+            ViewProperties.ShowProperties();
         }
 
 
@@ -61,19 +65,16 @@ Report.StaticText = {
 
         Report.StaticText.numStaticText += 1;
         Report.resizableElements();
-    },getMouseDown : function (e,idProperties){
-       /* if(!$("#"+ViewProperties.elementSelected).hasClass('elementSelectedTrue'))
-        {*/
+    },getMouseDown : function (e,t){
+        if(!t.hasClass('elementPanelSelected')) {
+            $("div").removeClass("elementPanelSelected");
+            t.addClass('elementPanelSelected');
             Report.PanelRight.cleanDivProperties();
-            //$("#"+ViewProperties.elementSelected).addClass("elementSelected");
-
-
-//			ViewProperties.containmentFather = $("#"+ViewProperties.elementSelected).parent().get( 0 ).id;
-
-
-            ViewProperties.ShowProperties();
-            ViewProperties.ShowProperties('Texto Estático',idProperties);
+            ViewProperties.ShowProperties('Texto Estático', t.data("idproperties"));
             ViewProperties.setValuesProperties(Report.StaticText.checkValuesStaticText);
+            ViewProperties.ShowProperties();
+
+        }
 
         setTimeout(function explode(){
 
@@ -88,9 +89,7 @@ Report.StaticText = {
             });
         }, 100);
        // }
-
-        $("div").addClass("elementSelectedTrue");
-	},addMouseUpStaticText : function (){
+    },addMouseUpStaticText : function (){
 	    $('#'+Report.StaticText.idStaticText).mouseup(function(e) { 
 			selectedShape = undefined;
 	    });	
@@ -128,7 +127,6 @@ Report.StaticText = {
 						switch (tag) {
 						    case 'size':
 								(ViewProperties.elementSelected != null) ? $('#'+id).val($("#"+ViewProperties.elementSelected).css("font-size").replace('px', '')) : "";
-
                                 break;
 						    case 'textAlignment': 
 						    	$('#'+id).val(Report.StaticText.tradc($("#"+ViewProperties.elementSelected).css("text-align")));

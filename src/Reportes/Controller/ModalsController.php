@@ -39,6 +39,12 @@ class ModalsController extends Controller
         $this->tpl->renders('view::modals/tables');
     }
 
+    public function createConditionStyle($request)
+    {
+        $this->tpl->addIni();
+        $this->tpl->renders('view::modals/conditionStyle');
+    }
+
 
 }
 ?>

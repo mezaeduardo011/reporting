@@ -48,7 +48,13 @@ class PropertiesModel extends Main
     public function getValuesSelectById($id)
     {
       return $this->select("SELECT value FROM properties_values WHERE id_property = $id;");
-    }       
+    }
+
+    public function getTypeColumn($column,$table)
+    {
+        return $this->select("SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table' AND COLUMN_NAME = '$column';");
+    }
+
 
 }
 ?>

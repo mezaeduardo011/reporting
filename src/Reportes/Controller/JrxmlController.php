@@ -22,7 +22,7 @@ class JrxmlController extends Controller
     }
     public function addTag($request)
     {
-        $xml = $request->postParameter('xml');
+        $xml =  str_replace('xmlns=""', '',  $request->postParameter('xml'));
         $this->doc->loadXML($xml);
         $this->saveJrxml();
     }

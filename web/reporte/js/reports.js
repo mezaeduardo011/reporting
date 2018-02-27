@@ -168,3 +168,5 @@ document.write('<script src="/reporte/js/elements.js"></script>')
 
 document.write('<script src="/reporte/js/box.js"></script>')
 document.write('<script src="/reporte/js/staticText.js"></script>')
+document.write('<script src="/reporte/js/style.js"></script>')
+document.write('<script src="/reporte/js/parameters.js"></script>')

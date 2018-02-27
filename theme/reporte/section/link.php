@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="<?=JPH\Core\Store\Cache::get('srcCss')?>AdminLTE.min.css">
   <link rel="stylesheet" href="<?=JPH\Core\Store\Cache::get('srcCss')?>report.css">
   <link rel="stylesheet" href="<?=JPH\Core\Store\Cache::get('srcCss')?>box.css">
+  <link rel="stylesheet" href="<?=JPH\Core\Store\Cache::get('srcCss')?>ruler.css">
 
 
   <!-- AdminLTE Skins. Choose a skin from the css/skins

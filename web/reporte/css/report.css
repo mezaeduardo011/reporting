@@ -176,7 +176,6 @@ li{
 
 .gutter.gutter-vertical {
     cursor: row-resize;
-    background-image: url('./../img/grips/horizontal.png');
 }
 
 .buttonClick{
@@ -186,7 +185,9 @@ li{
 
 .staticText{
     height: 50px;
-    min-width: 500px;
+    width: 100px;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 .title:empty:not(:focus):before {

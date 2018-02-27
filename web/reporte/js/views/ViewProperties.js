@@ -19,20 +19,27 @@ ViewProperties = {
 	main : function  () {
 		var eventFrame = $('.elementPanel');
 
-		eventFrame.click(function(){
-		    var id = $(this).data("id");
-	        var typeElement = $(this).data('element');  
-			switch (typeElement) {
-			    case 'Texto Estático': ViewProperties.setValuesProperties(Report.StaticText.checkValuesStaticText);
-			    break;				
-			    case 'Caja': ViewProperties.setValuesProperties(Report.Box.checkValuesBox);
-			    break;			        
-			}	
-	        
 
-			ViewProperties.cleanDivProperties();
-			ModelProperties.getPropertiesDefault();
-			ModelProperties.getPropertiesById(typeElement, id);
+		eventFrame.click(function(){
+			if(!$(this).hasClass('elementPanelSelected'))
+			{
+
+                $("a").removeClass("elementPanelSelected");
+                $(this).addClass('elementPanelSelected');
+                var id = $(this).data("id");
+                var typeElement = $(this).data('element');
+                switch (typeElement) {
+                    case 'Texto Estático': ViewProperties.setValuesProperties(Report.StaticText.checkValuesStaticText);
+                        break;
+                    case 'Caja': ViewProperties.setValuesProperties(Report.Box.checkValuesBox);
+                        break;
+                }
+
+                ViewProperties.cleanDivProperties();
+                ModelProperties.getPropertiesDefault();
+                ModelProperties.getPropertiesById(typeElement, id);
+			}
+
 		});
 	},cleanDivProperties : function (){
 		ViewProperties.containerProperties.empty();
@@ -74,8 +81,10 @@ ViewProperties = {
 		}
 		
 		$.get( route,jsonId,function( response ) {
-			$.each(response.datos, function(i, data) {
-				ViewProperties.writeProperty(data);
+            container.empty();
+            console.log('pasa');
+            $.each(response.datos, function(i, data) {
+                ViewProperties.writeProperty(data);
 				ViewProperties.showProperty(container);
 			}); 		
 		});				
@@ -159,9 +168,13 @@ ViewProperties = {
 			case 'Espacios En Líneas':
 			value = (selected) ? 'value = "'+$('#'+ViewProperties.elementSelected).css('line-height').replace('px', '')+'"':'';
 			action = 'onkeyup="ControllerProperties.actionSpaceLines(this)"';
-		    break;		    
-	    		    		       	      	    
-		}	
+		    break;
+            case 'Nombre':
+			value = (selected) ? 'value = "'+$('#li'+ViewProperties.elementSelected).text()+'"':'';
+			action = 'onkeyup="ControllerProperties.actionName(this)"';
+			break;
+
+        }
 
 		var disabled = (selected) ? '':'disabled';
 		

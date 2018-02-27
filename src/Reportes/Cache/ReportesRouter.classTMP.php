@@ -3,7 +3,7 @@
 /**
  * @propiedad: PROPIETARIO DEL CODIGO
  * @Autor: Gregorio Bolivar * @email: elalconxvii@gmail.com
- * @Fecha de Creacion: 03/02/2018
+ * @Fecha de Creacion: 26/02/2018
  * @Auditado por: Gregorio J Bolívar B
  * @Descripción: Generado por el generador de codigo de router de webStores * @package: datosClass
  * @version: 1.0
@@ -67,5 +67,13 @@ $process12 = $router->setRuta($datos12);
 $datos13 = array('petition'=>"POST", 'request'=>$request, 'name'=>"/readBase", 'apps'=>"Reportes", 'controller'=>"jrxml",'method'=>'readBase');
 $process13 = $router->setRuta($datos13);
 /** Fin del caso de /readBase */
+/** Inicio  del Bloque de instancia al proceso de /createConditionStyle  */
+$datos14 = array('petition'=>"GET", 'request'=>$request, 'name'=>"/createConditionStyle", 'apps'=>"Reportes", 'controller'=>"modals",'method'=>'createConditionStyle');
+$process14 = $router->setRuta($datos14);
+/** Fin del caso de /createConditionStyle */
+/** Inicio  del Bloque de instancia al proceso de /getTypeColumn  */
+$datos15 = array('petition'=>"POST", 'request'=>$request, 'name'=>"/getTypeColumn", 'apps'=>"Reportes", 'controller'=>"elements",'method'=>'getTypeColumn');
+$process15 = $router->setRuta($datos15);
+/** Fin del caso de /getTypeColumn */
  
 ?>

@@ -10,7 +10,8 @@ ModelProperties = {
 		route = "/reportes.php/getPropertiesDefault";
 		container = Report.PanelRight.containerProperties;
 		$.get( route,jsonId,function( response ) {
-			$.each(response.datos, function(i, data) {
+            container.empty();
+            $.each(response.datos, function(i, data) {
 				ViewProperties.writeProperty(data);
 				ViewProperties.showProperty(container);
 			}); 		
@@ -26,7 +27,8 @@ ModelProperties = {
 		jsonId  = {'id':id};	
 		container = Report.PanelRight.containerPropertiesEspecific;
 		$.get( route,jsonId,function( response ) {
-			$.each(response.datos, function(i, data) {
+            container.empty();
+            $.each(response.datos, function(i, data) {
 				ViewProperties.writeProperty(data);
 				ViewProperties.showProperty(container);
 			}); 		

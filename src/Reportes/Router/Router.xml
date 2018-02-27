@@ -91,4 +91,18 @@
         <request>POST</request>
     </link>
 
+    <link>
+        <name>/createConditionStyle</name>
+        <controller>modals</controller>
+        <method>createConditionStyle</method>
+        <request>GET</request>
+    </link>
+
+    <link>
+        <name>/getTypeColumn</name>
+        <controller>elements</controller>
+        <method>getTypeColumn</method>
+        <request>POST</request>
+    </link>
+
 </route>

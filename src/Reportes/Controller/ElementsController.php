@@ -45,7 +45,14 @@ class ElementsController extends Controller
    public function getValuesSelectById($request){
       $id = $request->getParameter('id');
       $this->json($this->propertiesModel->getValuesSelectById($id));
-   }         
+   }
+
+   public function getTypeColumn($request)
+   {
+       $column = $request->postParameter('column');
+       $table = $request->postParameter('table');
+       $this->json($this->propertiesModel->getTypeColumn($column,$table));
+   }
 
    
 }

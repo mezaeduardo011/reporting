@@ -32,12 +32,15 @@ Report.Box = {
         console.log("Se aplica el evendo onmousedown al elemento");
         element.onmousedown = function (e)
         {
-            console.log("Se indica a la vista el id del div padre del elemento que se esta usando actualmente");
-            ViewProperties.containmentFather = element.parentNode.id;
-            console.log("Se hace el llamado a Report.Box.getMouseDown(e,$(this));");
-            Report.Box.getMouseDown(e,$(this));
-            console.log("Se aplica e.stopPropagation() para evitar que choque con otros eventos click ");
-            e.stopPropagation();
+
+                console.log("Se indica a la vista el id del div padre del elemento que se esta usando actualmente");
+                ViewProperties.containmentFather = element.parentNode.id;
+                console.log("Se hace el llamado a Report.Box.getMouseDown(e,$(this));");
+                Report.Box.getMouseDown(e, $(this));
+                console.log("Se aplica e.stopPropagation() para evitar que choque con otros eventos click ");
+                e.stopPropagation();
+
+
         }
 
         console.log("e.target.appendChild(element); AGREGA EL ELEMENTO DIBUJADO AL DIV HOJA");
@@ -64,8 +67,9 @@ Report.Box = {
         console.log("Se obtienen las propiedades  var idProperties = t.data(\"idproperties\")\n ");
         var idProperties = t.data("idproperties")
 
-        /*if(!$("#"+ViewProperties.elementSelected).hasClass('elementSelectedTrue'))
-        {*/
+        if(!t.hasClass('elementPanelSelected')) {
+            $("div").removeClass("elementPanelSelected");
+           t.addClass('elementPanelSelected');
             console.log("Se borran las propieades que estan mostrandose Report.PanelRight.cleanDivProperties();")
             Report.PanelRight.cleanDivProperties();
             console.log("Se muestran las propiedades por defecto ViewProperties.ShowProperties();")
@@ -74,7 +78,7 @@ Report.Box = {
             ViewProperties.ShowProperties('Caja',idProperties);
             console.log("Se actualiza los valores de las propiedades");
             ViewProperties.setValuesProperties(Report.Box.checkValuesBox);
-        //}
+        }
 
 		$("#"+ViewProperties.elementSelected).addClass("elementSelectedTrue");
 
@@ -100,15 +104,6 @@ Report.Box = {
             });
 	    });
 	},checkValuesBox : function (){
-
-	},
-	ShowProperties : function (id) {
-		$.get( "/reportes.php/getPropertiesByFatherId",{'id':id} ,function( response ) {
-			$.each(response.datos, function(i, data) {
-				Report.Properties.writeProperty(data);
-				Report.Properties.showProperty(Report.PanelRight.containerPropertiesEspecific);
-			}); 		
-		});				
 
 	}
 }

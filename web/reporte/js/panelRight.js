@@ -13,17 +13,18 @@ Report.PanelRight = {
 	containerProperties : $('.containerProperties'),
 	containerPropertiesEspecific: $('.containerPropertiesEspecific'),
 	main : function  () {
-		this.getEventPanel();
+		console.log('evento desactivado');
+		//this.getEventPanel();
 	},
 	getEventPanel : function () {
 
 		var eventFrame = $('.elementPanel');
 		eventFrame.click(function(){
-		Report.PanelRight.cleanDivProperties();
-		Report.Properties.ShowProperties();
+		ViewProperties.cleanDivProperties();
+		//ViewProperties.ShowProperties();
 	    var id = $(this).data("id");
-        var typeElement = $('#'+id).data('element');                
-  		Report.Properties.ShowProperties(typeElement,id);
+        var typeElement = $('#'+id).data('element');
+        ViewProperties.ShowProperties(typeElement,id);
 		});
 				
 	},desabledClcikElement : function (){

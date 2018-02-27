@@ -20,6 +20,9 @@
 <script src="<?=JPH\Core\Store\Cache::get('srcJs')?>ResizeSensor.js"></script>
 <script src="<?=JPH\Core\Store\Cache::get('srcJs')?>/jQueryRotate.js"></script>
 <script src="<?=JPH\Core\Store\Cache::get('srcJs')?>/split.js"></script>
+<!--script src="<?=JPH\Core\Store\Cache::get('srcJs')?>/addElments.js"></script-->
+<script src="<?=JPH\Core\Store\Cache::get('srcJs')?>/lines_rules.js"></script>
+<script src="<?=JPH\Core\Store\Cache::get('srcJs')?>/parameters.js"></script>
 
 
 <script src="/reporte/css/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
