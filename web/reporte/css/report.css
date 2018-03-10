@@ -17,7 +17,7 @@ margin: 0;
     height: 800px;
     width: 95.5%;
     overflow-y: auto;
-    background: #13566E;
+    background: #f5f5f5 ;
     min-height: 100px;
     left: 0;
 }
@@ -45,18 +45,23 @@ margin: 0;
   border:1px solid #000000;
 }
 .buttonTab{
-      background: #922121c7;
+      background: #888;
       border-radius: 5px 5px 5px 5px;
       -moz-border-radius: 5px 5px 5px 5px;
       -webkit-border-radius: 5px 5px 5px 5px;
       border: 0px solid #000000;
-      width: 50px;  
+      width: 32px;  
       cursor: pointer;   
-      padding: 5px;       
+      padding: 5px;
+	  color:#fff !important
+}
+li.buttonTab i{
+      color:#fff !important
 }
 .buttonTab.active{
-  background-color: #DD4B39;
+  background-color: #333;
   padding: 6px;
+  color:#fff !important
 }      
 
 li{
@@ -68,7 +73,7 @@ li{
   margin-top: 8%;
   height: 50%;
   padding: 0;
-  background: #13566e6b;
+  background: #f1f1f1;
 }
 
 .inputPropertie{
@@ -197,4 +202,97 @@ li{
 
 .customRes{
     width: 3%;
+}
+.skin-yellow .main-header .navbar {
+    background-color: #f1f1f1 !important;
+}
+.yellow {
+    color: #f39c12 !important;
+}
+.light-yellow {
+    color: #fbc063 !important;
+}
+.gray {
+    color: #848484 !important;
+}
+.orange {
+    color: #ff0000 !important;
+}
+.dark-blue {
+    color: #0f3271 !important;
+}
+.control-sidebar-dark .nav-tabs.control-sidebar-tabs > li.active > a, .control-sidebar-dark .nav-tabs.control-sidebar-tabs > li.active > a:hover, .control-sidebar-dark .nav-tabs.control-sidebar-tabs > li.active > a:focus, .control-sidebar-dark .nav-tabs.control-sidebar-tabs > li.active > a:active {
+    background: #f3f3f3 !important;
+    color: #555 !important;
+	border-top: 1px solid #ccc;
+padding: 3px;
+margin-top: 6px;
+}
+.control-sidebar-dark, .control-sidebar-dark + .control-sidebar-bg {
+    background: #fff !important;
+}
+.control-sidebar-dark .control-sidebar-heading, .control-sidebar-dark .control-sidebar-subheading {
+    color: #333;
+}
+.control-sidebar-menu .menu-icon {
+    float: left;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    background: transparent !important;
+    color: #333 !important;
+}
+.control-sidebar-menu .menu-info {
+    margin-left: 26px;
+    margin-top: 8px;
+}
+.control-sidebar-dark .control-sidebar-menu > li > a:hover {
+    background: #ccc !important;
+}
+.vertical-menu .cm_vertical, .vertical-menu .mm_vertical {
+    border-left: 1px solid #848484 !important;
+}
+.skin-yellow .main-sidebar, .skin-yellow .left-side {
+    background-color: #f5f5f5;
+}
+.skin-yellow .sidebar-menu > li.header {
+    color: #333 !important;
+    background: #ddd !important;
+}
+.skin-yellow .sidebar-menu > li.active > a, .skin-yellow .sidebar-menu > li.menu-open > a {
+    color: #555 !important;
+    background: #fcfcfc !important;
+}
+.skin-yellow .sidebar-form input[type="text"], .skin-yellow .sidebar-form .btn {
+    box-shadow: none;
+    background-color: #ddd !important;
+    border: 1px solid transparent;
+    height: 25px !important;
+}
+.skin-yellow .sidebar-form {
+    border-radius: 3px !important;
+    border: 1px solid #848484 !important;
+    margin: 10px 10px;
+}
+ .skin-yellow .main-sidebar, .skin-yellow .left-side {
+    background-color: #fff !important;
+}
+.navbar.navbar-static-top ul li {
+	color:#888 !important;
+}
+.sidebar-menu > li > a {
+    padding: 10px 5px 9px 11px !important;
+}
+.content-wrapper {
+    background: #cdcdcd !important;
+}
+.sidebar {
+    padding-bottom: 10px;
+    border-right: 1px solid #888;
+}
+.skin-yellow .main-header .navbar {
+    background-color: #f39c12;
+    border-bottom: 1px solid #888;
 }

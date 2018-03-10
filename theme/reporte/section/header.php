@@ -5,18 +5,18 @@
     <nav class="navbar navbar-static-top">
       <div class="col-md-12" style="color: #FFF;padding-top: 1%">
         <ul class="list-inline col-md-3" style="padding-top: 0.3%">
-            <li class="active" onclick="createConnection()"><i class="fa fa-bolt fa-lg" aria-hidden="true"></i></li>
+            <li class="active" onclick="createConnection()"><i class="fa fa-bolt fa-lg orange" aria-hidden="true"></i></li>
             <li class="active" >
               <select class="selectpicker" id="listConnections" style="color:black" onchange="useConnection(this)">
                 <option>Sin Conexión</option>
               </select>
             </li>
-            <li class="active" onclick="showTables()"><i class="fa fa-database fa-lg" aria-hidden="true"></i></li>
+            <li class="active" onclick="showTables()"><i class="fa fa-database fa-lg gray" aria-hidden="true"></i></li>
         </ul>
         <ul class="list-inline  col-md-8 col-md-pull-1 desabledHighl">
-            <li class="active"><i class="fa fa-reply fa-lg" aria-hidden="true"></i></li>
-            <li class="active"><i class="fa fa-share fa-lg" aria-hidden="true"></i></li>          
-            <li><i class="fa fa-floppy-o fa-lg" aria-hidden="true" onclick="saveXml(this)"></i></li>
+            <li class="active"><i class="fa fa-reply fa-lg yellow" aria-hidden="true"></i></li>
+            <li class="active"><i class="fa fa-share fa-lg light-yellow" aria-hidden="true"></i></li>          
+            <li><i class="fa fa-floppy-o fa-lg dark-blue" aria-hidden="true" onclick="saveXml(this)"></i></li>
             <li class="buttonTab active"><i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i></li>
             <li class="buttonTab"><i class="fa fa-file-code-o fa-lg" aria-hidden="true"></i></li>
             <li class="buttonTab"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></li>

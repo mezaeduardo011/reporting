@@ -4,7 +4,7 @@
  /* margin: 20px auto; */
  margin: 2%;
  margin-left: 10%;
- background: red;
+ background: #fff;
  height: 14px;
 }
 
@@ -130,7 +130,7 @@
     position: absolute;
     height: 830px;
     display: block;
-    background: red;
+    background: #fff;
     margin: 2%;
     margin-left: 3%;
 }
@@ -148,4 +148,7 @@
 }
 .vertical-menu .mm_vertical {
  height: 5px;
+}
+.content-wrapper {
+    background: #ccc !important;
 }
