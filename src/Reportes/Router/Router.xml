@@ -100,9 +100,21 @@
 
     <link>
         <name>/getTypeColumn</name>
-        <controller>elements</controller>
+        <controller>connection</controller>
         <method>getTypeColumn</method>
         <request>POST</request>
     </link>
 
+    <link>
+        <name>/validateQuery</name>
+        <controller>connection</controller>
+        <method>validateQuery</method>
+        <request>POST</request>
+    </link>
+    <link>
+        <name>/reportQuery</name>
+        <controller>modals</controller>
+        <method>reportQuery</method>
+        <request>GET</request>
+    </link>
 </route>

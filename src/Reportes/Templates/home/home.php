@@ -58,18 +58,21 @@
                             btnClass: 'btn-blue',
                             action: function () {
 
+                                var connections = (localStorage.getItem('connections') != null)? localStorage.getItem('connections'):'{"connections":[]}';
                                 var driverSend = $('#driver').val();
                                 var hostSend = $('#host').val();
                                 var databaseSend = $('#database').val();
                                 var userSend = $('#user').val();
                                 var passwordSend = $('#password').val();
                                 var idOption = hostSend+'_'+databaseSend;
-
                                 var data = { 'driver':driverSend,'host':hostSend,'users':userSend,'password':passwordSend,'db':databaseSend};
+                                    var jsonConn = JSON.parse(connections);
+                                jsonConn['connections'].push(data);
                                 $.post( "/reportes.php/saveConnection",data, function( response ){
                                     //En caso de  ser correcto el save devuelve un numero
                                     if(!isNaN(Number(response)))
                                     {
+                                        localStorage.setItem('connections', JSON.stringify(jsonConn) );
 
                                         $('#listConnections').append($('<option>', {
                                             value: 3,
@@ -186,55 +189,92 @@
             }else
             {
                 // $.alert('No se econtro una conexión');
-                $.confirm({
-                    title: 'Report Query',
-                    columnClass:'col-md-12',
-                    content: '' +
-                    '<form action="" class="formName">' +
-                    '<div class="form-group">' +
-                    '<textarea cols="500" rows="10" style="width:100%;" name="query" class="query"></textarea>' +
-                    '</div>' +
-                    '</form>',
-                    buttons: {
-                        formSubmit: {
-                            text: 'Submit',
-                            btnClass: 'btn-blue',
-                            action: function () {
-                                var query = this.$content.find('.query').val();
-                                if(!query){
-                                    $.alert('provide a valid name');
-                                    return false;
-                                }
+                /* $.confirm({
+                     title: 'Report Query',
+                     columnClass:'col-md-12',
+                     content: '' +
+                     '<form action="" class="formName">' +
+                     '<div class="form-group">' +
+                     '<textarea cols="500" rows="10" style="width:100%;" name="query" id="query" class="query"></textarea>' +
+                     '</div>' +
+                     '</form>',
+                     buttons: {
+                         formSubmit: {
+                             text: 'Submit',
+                             btnClass: 'btn-blue',
+                             action: function () {
+                                 var query = this.$content.find('.query').val();
+                                 if(!query){
+                                     $.alert('provide a valid name');
+                                     return false;
+                                 }
 
-                                var q = query.toUpperCase();
-                                var sq = q.match("SELECT(.*)FROM");
-                                //var table = q.match("FROM(.*)");
-                                var fields = sq[1].split(',');
-                                $.each(fields, function( index, value ) {
-                                    var data = {'column':$.trim(value) ,'table':'elements'};
 
-                                    $.post( "/reportes.php/getTypeColumn",data, function( response ) {
-                                        console.log(response['datos'][0].DATA_TYPE);
-                                    });
-                                });
+                                 $.alert('QUERY ' + fields);
+                             }
+                         },
+                         cancel: function () {
+                             //close
+                         },
+                     },
+                     onContentReady: function () {
+                         // bind to events
+                         var jc = this;
+                         this.$content.find('form').on('submit', function (e) {
+                             // if the user submits the form by pressing enter in the field.
+                             e.preventDefault();
+                             jc.$$formSubmit.trigger('click'); // reference the button and click it
+                         });
 
-                                $.alert('QUERY ' + fields);
-                            }
-                        },
-                        cancel: function () {
-                            //close
-                        },
-                    },
-                    onContentReady: function () {
-                        // bind to events
-                        var jc = this;
-                        this.$content.find('form').on('submit', function (e) {
-                            // if the user submits the form by pressing enter in the field.
-                            e.preventDefault();
-                            jc.$$formSubmit.trigger('click'); // reference the button and click it
-                        });
-                    }
-                });
+
+
+                         //Eventos para obtener query
+
+                         var xhr = null;
+
+                         $( "#query" ).keyup(function() {
+
+                             if(xhr != null)
+                             {
+                                 xhr.abort();
+                             }
+
+                             var q =  $(this).val().toUpperCase();
+                             var sq = q.match("SELECT(.*)FROM");
+
+
+                             if(sq != null)
+                             {
+                                 var fields = sq[1].split(',');
+                                 var table = q.substring(q.indexOf('FROM')).split(' ')[1];
+                                 //Se eliminan caracteres especiales del nombre de la tabla
+                                 if(table != undefined)
+                                 {
+                                     table = table.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+                                 }
+
+                                 console.log(q);
+                                 console.log(table);
+                                 $.each(fields, function( index, value ) {
+                                     var fieldCurrent = $.trim(value);
+                                     var data = {'column':fieldCurrent ,'table':table};
+
+                                     xhr = $.post( "/reportes.php/getTypeColumn",data, function( response ) {
+                                         if(response['datos'] != '')
+                                         {
+                                             console.log(response['datos'][0].DATA_TYPE);
+
+                                         }else
+                                         {
+                                             console.log('No se encontraron datos');
+                                         }
+                                     });
+                                 });
+                             }
+                         });
+                     }
+                 });*/
+                $('#ReportQuery').modal('show');
             }
 
         }
@@ -526,7 +566,48 @@
             if(e.which == 3)
             {
                 addUl = $(this).attr('data-ul');
+                addParameter(addUl)
+            }
 
+        });
+        $(document).on('click', '.optElementM', function(e) {
+            addUl = $(this).attr('data-ul');
+            addParameter(addUl)
+        });
+        function addParameter(addUl){
+            $.confirm({
+                title:false,
+                escapeKey: true,
+                closeIcon: false,
+                backgroundDismiss: true,
+                content:false,
+                buttons: {
+                    agregar: {
+                        text: 'Agregar',
+
+                        action: function(heyThereButton){
+                            addNewElemento(addUl)
+                        }
+                    }
+                },
+                onContentReady:function(){
+                    this.buttons.agregar.addClass('btn-block')
+                    $('.jconfirm-content-pane').css({
+                        height: 0,
+                        'margin-bottom': 0,
+                        display:'none'
+                    });
+                    $('.jconfirm-buttons').css({float: 'none'});
+                }
+            });
+        }
+        $(document).on('mousedown', '.ExpresionEditor', function(e) {
+            document.oncontextmenu = function(){return false}
+
+            if(e.which == 3)
+            {
+                namecondition= $(this).attr('data-condition');
+                namepapa= $(this).attr('data-papa');
                 $.confirm({
                     title:false,
                     escapeKey: true,
@@ -534,30 +615,61 @@
                     backgroundDismiss: true,
                     content:false,
                     buttons: {
-                        agregar: {
-                            text: 'Agregar',
+                        editcondition: {
+                            text: 'Edit Condition',
 
                             action: function(heyThereButton){
-                                addNewElemento(addUl)
+                                $("#columnados").empty();
+                                $("#columnatres").empty();
+                                textCondition = localStorage.getItem(namecondition)
+                                $("#condicionalString").html(textCondition);
+                                $('#namecondition').val(namecondition);
+                                $('#modalEditor').modal('show');
+                            }
+                        },
+
+                        trash: {
+                            text: 'Suprimir',
+
+                            action: function(heyThereButton){
+
+                                valorcondition = localStorage.getItem(namecondition)
+                                //alert(namecondition);
+                                if (valorcondition != null)
+                                {
+                                    localStorage.removeItem(namecondition);
+                                    loadElements()
+                                }else{
+                                    deletedElement(namecondition,namepapa)
+
+                                }
                             }
                         }
                     },
                     onContentReady:function(){
-                        this.buttons.agregar.addClass('btn-block')
+                        this.buttons.editcondition.addClass('btn-block')
+
+                        this.buttons.editcondition.addClass('btn-block')
+
+
+
+                        this.buttons.trash.addClass('btn-block')
                         $('.jconfirm-content-pane').css({
                             height: 0,
                             'margin-bottom': 0,
-                            display:'none'
+                            display:'none',
+                            'text-align':'left'
                         });
                         $('.jconfirm-buttons').css({float: 'none'});
                     }
                 });
-            }
 
+            }
         });
 
         $(document).on('mousedown', '.editOptionElemet', function(e) {
             //inabilitar menu opciones de click derecho
+            quien = $(this).attr('data-field');
             document.oncontextmenu = function(){return false}
 
             if(e.which == 3)
@@ -584,7 +696,7 @@
 
                             action: function(heyThereButton){
 
-                                conditionElemento(nameField)
+                                conditionElemento(quien,nameField)
                             }
                         },
                         trash: {
@@ -620,24 +732,24 @@
             }
         });
 
-        function conditionElemento(nameField)
+        function conditionElemento(quien,nameField)
         {
 
             n = $(".contlisub"+nameField).length;
             numli = new Number( n + 1 );
             if (localStorage.getItem(nameField))
             {
-                addsubvalArray(nameField, "nameCondition"+numli+"");
+                addsubvalArray(nameField, quien+"Condition"+numli+"",quien);
             }else{
                 subvalor = [];
-                subvalor.push("nameCondition"+numli+"");
+                subvalor.push(quien+"Condition"+numli+"");
                 // console.log(JSON.stringify(subvalor));
                 localStorage.setItem(nameField, JSON.stringify(subvalor));
                 listsubElement(nameField)
             }
 
         }
-        function addsubvalArray(nameField,content){
+        function addsubvalArray(nameField,content,quien){
             n = $(".contlisub"+nameField).length;
             numli = new Number( n + 1 );
             addArray = [];
@@ -653,7 +765,7 @@
                 }
 
             });
-            addArray.push("nameCondition"+numli+"")
+            addArray.push(quien+"Condition"+numli+"")
             localStorage.setItem(nameField, JSON.stringify(addArray));
             listsubElement(nameField)
         }
@@ -813,19 +925,29 @@
                                 text: 'Si',
                                 btnClass: 'btn  ink-reaction btn-blue',
                                 action: function () {
-                                    deleteItem = [];
+                                    ItemSobrantes = [];
                                     listArray = JSON.parse(localStorage.getItem(nameUl))
                                     $.each(listArray, function(index, val) {
 
                                         if (val != nameField)
                                         {
-                                            deleteItem.push(val)
+
+                                            ItemSobrantes.push(val)
+                                        }else
+                                        {
+                                            aEliminar = JSON.parse(localStorage.getItem(val))
+                                            localStorage.removeItem(val);
+
+                                            $.each(aEliminar, function(index, remover) {
+                                                localStorage.removeItem(remover);
+                                            });
                                         }
 
                                     });
 
-                                    localStorage.setItem(nameUl, JSON.stringify(deleteItem));
+                                    localStorage.setItem(nameUl, JSON.stringify(ItemSobrantes));
                                     listElement(nameUl)
+                                    loadElements()
                                 }
 
                             },
@@ -902,7 +1024,7 @@
             arrayListElement = ["ulParameters","ulStyle"];
 
             $.each(arrayListElement, function(index, nameUL) {
-                ulElements = $("#"+nameUL);
+                ulElements = $("."+nameUL);
                 ulElements.empty();
                 listArray = JSON.parse(localStorage.getItem(nameUL))
                 $.each(listArray, function(index, val) {
@@ -917,7 +1039,7 @@
                     ulElements.append(
                         "<li class='"+nameUL+" treeview menu-open sub"+val+"' >" +
                         "<a data-field=\'"+val+"\' data-quien="+nameUL+"  id='li"+val+"' class='editOptionElemet elementPanel' "+attr+">" +
-                        "<i class='fa fa-circle-o'> "+val+" </i>" +
+                        ""+val+" </i>" +
                         "</a>" +
                         "</li>"
                     );
@@ -941,6 +1063,28 @@
                 });
             });
             eventElement();
+
+            var jsonConn = JSON.parse(localStorage.getItem('connections'));
+            if(jsonConn != null)
+            {
+                for(var item in jsonConn.connections) {
+
+                    var idOption = jsonConn.connections[item].host+'_'+jsonConn.connections[item].db;
+
+                    $('#listConnections').append($('<option>', {
+                        value: 3,
+                        text:jsonConn.connections[item].host+"."+jsonConn.connections[item].db,
+                        id:idOption
+                    }));
+
+                    $('#'+idOption).attr('data-driver', jsonConn.connections[item].driver);
+                    $('#'+idOption).attr('data-host', jsonConn.connections[item].host);
+                    $('#'+idOption).attr('data-database', jsonConn.connections[item].db);
+                    $('#'+idOption).attr('data-user', jsonConn.connections[item].users);
+                    $('#'+idOption).attr('data-password', jsonConn.connections[item].password);
+                }
+            }
+
         }
         function listsubElement(nameField){
 
@@ -953,9 +1097,17 @@
             sublistadointerno = $("#"+namesub);
 
             listUlelement = JSON.parse(localStorage.getItem(nameField))
+
             $.each(listUlelement, function(index, val) {
+                textConditionStore = localStorage.getItem(val)
+                if (textConditionStore == null){
+                    textoCondition = "No condition set";
+
+                }else{
+                    textoCondition=textConditionStore
+                }
                 sublistadointerno.append(
-                    '<li class="contlisub'+nameField+' ExpresionEditor" ><a href="#"><i class="fa fa-plus"></i>'+val+'</a></li>'
+                    '<li class="contlisub'+nameField+' ExpresionEditor" data-condition="'+val+'" data-papa="'+nameField+'"><a href="#"><i class="fa fa-plus"></i>'+textoCondition.replace(/<[^>]*>?/g, '')+'</a></li>'
                 );
             });
         }
@@ -964,14 +1116,7 @@
         /*NUEVO*/
 
 
-        $(document).on('mousedown', '.ExpresionEditor', function(e) {
-            document.oncontextmenu = function(){return false}
 
-            if(e.which == 3)
-            {
-                $('#modalEditor').modal('show');
-            }
-        });
 
 
 
@@ -1088,9 +1233,28 @@
         });
 
         $(document).on('click', '#aplicarExpresion', function(e) {
-            expresion = $("#condicionalString").text();
-            alert(expresion);
+            //expresion que se gurara en localStorage
+            expresionHtml = $("#condicionalString").html();
+            //expresion que se va utilzar para reporte
+            expresionText = $("#condicionalString").text();
+            //nombre del UL que se le esta aplicando el condicional
+            Namecodition = $("#namecondition").val();
+            //se gurdar la expresion html en localstorage
+            localStorage.setItem(Namecodition, expresionHtml);
+            loadElements()
         });
+
+
+        /*cambiar icono mostrar / ocultar*/
+        function toggleIcon(e) {
+            $(e.target)
+                .prev('.previewdata')
+                .find(".more-less")
+                .toggleClass('glyphicon-plus glyphicon-minus');
+        }
+        $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+        $('.panel-group').on('shown.bs.collapse', toggleIcon);
+
 
     </script>
 <?php $this->end()?>

@@ -42,6 +42,29 @@ class ConnectionModel extends Main
         return $response;
     }
 
+    public function validateQuery($conn,$query)
+    {
+        $response = null;
+
+        $stmt = sqlsrv_query( $conn, $query );
+
+
+        if( $stmt === false ) {
+            if( ($errors = sqlsrv_errors() ) != null) {
+                foreach( $errors as $error ) {
+                    $response = $error[ 'message'];
+                }
+            }
+        }else
+        {
+            $response = true;
+        }
+
+
+
+        return $response;
+    }
+
     public function showColumnsReport($entidad,$conn)
     {
         $response = null;
@@ -71,24 +94,28 @@ class ConnectionModel extends Main
         return $response;
     }
 
+    public function getTypeColumn($conn,$table, $column )
+    {
+        $response = null;
+        $query = "SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table' AND COLUMN_NAME = '$column';";
 
+        $stmt = sqlsrv_query( $conn, $query );
 
-    /*
-
-        $sql = "SELECT * FROM table1";
-
-        $stmt = sqlsrv_query( $conn, $sql );
-
-        if( $stmt === false) {
-            die( print_r( sqlsrv_errors(), true) );
+        if( $stmt === false ) {
+            if( ($errors = sqlsrv_errors() ) != null) {
+                foreach( $errors as $error ) {
+                    $response = $error[ 'message'];
+                }
+            }
+        }else
+        {
+            while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC ) ) {
+                $response[] = $row;
+            }
         }
-        echo var_dump($conn);
-        while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-            echo $row['saludo']."<br />";
-        }
+        return $response;
+    }
 
-sqlsrv_free_stmt( $stmt);
-    */
 
 }
 ?>

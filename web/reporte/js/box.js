@@ -66,8 +66,8 @@ Report.Box = {
         ViewProperties.containmentFather = $("#"+ViewProperties.elementSelected).parent().get( 0 ).id;
         console.log("Se obtienen las propiedades  var idProperties = t.data(\"idproperties\")\n ");
         var idProperties = t.data("idproperties")
-
-        if(!t.hasClass('elementPanelSelected')) {
+        console.log('Se verifica el valor de: t.hasClass("elementPanelSelected") = '+t.hasClass('elementPanelSelected'));
+       // if(!t.hasClass('elementPanelSelected')) {
             $("div").removeClass("elementPanelSelected");
            t.addClass('elementPanelSelected');
             console.log("Se borran las propieades que estan mostrandose Report.PanelRight.cleanDivProperties();")
@@ -78,7 +78,7 @@ Report.Box = {
             ViewProperties.ShowProperties('Caja',idProperties);
             console.log("Se actualiza los valores de las propiedades");
             ViewProperties.setValuesProperties(Report.Box.checkValuesBox);
-        }
+       // }
 
 		$("#"+ViewProperties.elementSelected).addClass("elementSelectedTrue");
 
@@ -94,7 +94,6 @@ Report.Box = {
                 }
             });
         }, 100);
-
 	},addMouseUpBox : function (){
 	    //Se verifican los iconos ui-resisable que sean solo de ViewProperties.elementSelected (elemento que recibe el mouseUp)
 	    $('#'+Report.Box.idBox).mouseup(function(e) {

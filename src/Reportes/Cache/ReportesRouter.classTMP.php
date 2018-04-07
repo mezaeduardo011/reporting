@@ -3,7 +3,7 @@
 /**
  * @propiedad: PROPIETARIO DEL CODIGO
  * @Autor: Gregorio Bolivar * @email: elalconxvii@gmail.com
- * @Fecha de Creacion: 26/02/2018
+ * @Fecha de Creacion: 07/04/2018
  * @Auditado por: Gregorio J Bolívar B
  * @Descripción: Generado por el generador de codigo de router de webStores * @package: datosClass
  * @version: 1.0
@@ -72,8 +72,16 @@ $datos14 = array('petition'=>"GET", 'request'=>$request, 'name'=>"/createConditi
 $process14 = $router->setRuta($datos14);
 /** Fin del caso de /createConditionStyle */
 /** Inicio  del Bloque de instancia al proceso de /getTypeColumn  */
-$datos15 = array('petition'=>"POST", 'request'=>$request, 'name'=>"/getTypeColumn", 'apps'=>"Reportes", 'controller'=>"elements",'method'=>'getTypeColumn');
+$datos15 = array('petition'=>"POST", 'request'=>$request, 'name'=>"/getTypeColumn", 'apps'=>"Reportes", 'controller'=>"connection",'method'=>'getTypeColumn');
 $process15 = $router->setRuta($datos15);
 /** Fin del caso de /getTypeColumn */
+/** Inicio  del Bloque de instancia al proceso de /validateQuery  */
+$datos16 = array('petition'=>"POST", 'request'=>$request, 'name'=>"/validateQuery", 'apps'=>"Reportes", 'controller'=>"connection",'method'=>'validateQuery');
+$process16 = $router->setRuta($datos16);
+/** Fin del caso de /validateQuery */
+/** Inicio  del Bloque de instancia al proceso de /reportQuery  */
+$datos17 = array('petition'=>"GET", 'request'=>$request, 'name'=>"/reportQuery", 'apps'=>"Reportes", 'controller'=>"modals",'method'=>'reportQuery');
+$process17 = $router->setRuta($datos17);
+/** Fin del caso de /reportQuery */
  
 ?>

@@ -132,7 +132,7 @@ li{
 }
     
 .elementText{
-  /*display: inline-table;*/
+
   /*PARA DESACTIVAR EL HIGHLIGHTING DEL TEXTO*/
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -190,7 +190,8 @@ li{
 
 .staticText{
     height: 50px;
-    width: 100px;
+    width: auto;
+    display: inline-table;
     min-width: 50px;
     min-height: 50px;
 }
@@ -295,4 +296,8 @@ margin-top: 6px;
 .skin-yellow .main-header .navbar {
     background-color: #f39c12;
     border-bottom: 1px solid #888;
+}
+
+.div-style{
+    display: none;
 }

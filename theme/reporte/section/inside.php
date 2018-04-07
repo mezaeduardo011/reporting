@@ -3,7 +3,7 @@
 </style>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar" style="overflow-y: auto;height: 700px;">
+    <section class="sidebar" style="overflow-y: auto;height: 700px;overflow-x: hidden;">
         <!-- Sidebar user panel -->
 
         <!-- search form -->
@@ -17,14 +17,14 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Inspector De Elementos</li>
-            <li class="active treeview "  id="liEstilos">
+            <li class="active treeview " >
                 <a href="#" class="optElement" data-ul="ulStyle">
                     <i class="fa fa-dashboard"></i>Estilos <span></span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
-                <ul class="treeview-menu elementsAdded" id="ulStyle">
+                <ul class="treeview-menu elementsAdded ulStyle">
                 </ul>
             </li>
             <li class="active treeview ">
@@ -34,7 +34,7 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
-                <ul class="treeview-menu elementsAdded"  id="ulParameters">
+                <ul class="treeview-menu elementsAdded ulParameters">
                 </ul>
             </li>
             <li class="active treeview ">

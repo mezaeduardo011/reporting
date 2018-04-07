@@ -44,6 +44,8 @@ Report.StaticText = {
         }
 
 
+
+
         e.target.appendChild(element);
         ViewProperties.containmentFather = element.parentNode.id;
 
@@ -52,6 +54,17 @@ Report.StaticText = {
         	$( "#"+Report.StaticText.idStaticText ).attr("contenteditable","true");
             //$('.ui-resizable-handle').hide();
             $( "#"+Report.StaticText.idStaticText ).append('Text');
+
+            console.log("Se aplica el evendo keyup para modificar el xml cuando se escribe el texto");
+
+            document.querySelector("#"+Report.StaticText.idStaticText).addEventListener("keyup", function(event){
+                console.log( $(this).text() );
+                var xml = $.parseXML($(this).attr("data-xml"));
+                $(xml).find('text').empty();
+                $(xml).find('text').append('<![CDATA['+$(this).text()+']]>');
+                $(this).attr("data-xml",(new XMLSerializer()).serializeToString(xml));
+            });
+
         }else
         {
             $( "#"+Report.StaticText.idStaticText ).attr("contenteditable","false");

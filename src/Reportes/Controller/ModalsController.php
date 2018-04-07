@@ -32,6 +32,7 @@ class ModalsController extends Controller
 
     public function tables($request)
     {
+
         $fieldSelected = explode(',',$request->getParameter('fieldsSelecteds'));
         $this->tpl->addIni();
         $this->tpl->add('data',$this->ConnectionController->getDescTables($request));
@@ -43,6 +44,12 @@ class ModalsController extends Controller
     {
         $this->tpl->addIni();
         $this->tpl->renders('view::modals/conditionStyle');
+    }
+
+    public function reportQuery()
+    {
+        $this->tpl->addIni();
+        $this->tpl->renders('view::modals/reportQuery');
     }
 
 

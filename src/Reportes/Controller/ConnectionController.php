@@ -16,6 +16,7 @@ class ConnectionController extends Controller
     {
         parent::__construct();
         $this->model = new Model\ConnectionModel();
+        $this->propertiesModel = new Model\PropertiesModel();
     }
 
     public function testConnection($request)
@@ -112,6 +113,22 @@ class ConnectionController extends Controller
         }
 
         return $data;
+    }
+
+
+    public function getTypeColumn($request)
+    {
+        $conn = $this->useConnection($request);
+        $column = $request->postParameter('column');
+        $table = $request->postParameter('table');
+
+        $this->json($this->model->getTypeColumn($conn,$column,$table));
+    }
+
+    public function validateQuery($request)
+    {
+        $conn = $this->useConnection($request);
+        echo json_encode($this->model->validateQuery($conn,$request->postParameter('query')));
     }
 
 }

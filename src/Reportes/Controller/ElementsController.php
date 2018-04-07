@@ -47,12 +47,6 @@ class ElementsController extends Controller
       $this->json($this->propertiesModel->getValuesSelectById($id));
    }
 
-   public function getTypeColumn($request)
-   {
-       $column = $request->postParameter('column');
-       $table = $request->postParameter('table');
-       $this->json($this->propertiesModel->getTypeColumn($column,$table));
-   }
 
    
 }
