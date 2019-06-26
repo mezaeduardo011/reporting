@@ -24,7 +24,7 @@
   <div class="content-wrapper" style="background: #008abf6e;">
         <!-- Content Header (Page header) -->
         <!-- Main content -->
-        <section class="content">
+        <section class="content" style="position: relative;">
            <?=$this->section('content')?>
         </section>
         <!-- /.content -->

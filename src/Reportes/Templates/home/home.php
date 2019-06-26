@@ -1,7 +1,9 @@
 <?php $this->layout('base')?>
 
-
-    <div id="reglas_reporte"></div>
+    <div class="cor-top"></div>
+    <div class="cor-vertical"></div>
+    <div id="reglas_reporte" class="role-top"></div>
+    <div id="reglas_reporte_vertical" class="role-left"></div>
 
     <div class="borderHoja">
         <div class="row hoja" ondragover="Report.EventsDragDrop.allowDrop(event)" ondrop="Report.EventsDragDrop.hojaDrop(event)">
@@ -149,6 +151,7 @@
                     '&password='+dataConnection.password+
                     '&host='+dataConnection.host,
                     columnClass:'col-md-12',
+                    closeIcon: true,
                     title:false,
                     buttons: {
                         Agregar: {
@@ -189,7 +192,7 @@
             }else
             {
                 // $.alert('No se econtro una conexión');
-                /* $.confirm({
+             /*$.confirm({
                      title: 'Report Query',
                      columnClass:'col-md-12',
                      content: '' +
@@ -1034,7 +1037,7 @@
                         attr = "data-id='15' data-element='Estilos'";
                     }else
                     {
-                        attr = 'data-id=\'15\' draggable=\'true\' ondragstart=\'Report.EventsDragDrop.drag(event)\' data-element=\'Texto Estático\'';
+                        attr = 'data-id=\'15\' draggable=\'true\' ondragstart=\'Report.EventsDragDrop.drag(event)\' data-element=\'Parametro\'';
                     }
                     ulElements.append(
                         "<li class='"+nameUL+" treeview menu-open sub"+val+"' >" +
@@ -1118,7 +1121,7 @@
 
 
 
-
+        var FieldsArray = [];
 
         function eventElement() {
             var eventFrame = $('.elementPanel');
@@ -1133,7 +1136,7 @@
                     var id = $(this).data("id");
                     var typeElement = $(this).data('element');
                     switch (typeElement) {
-                        case 'Texto Estático': ViewProperties.setValuesProperties(Report.StaticText.checkValuesStaticText);
+                        case 'Parametro': ViewProperties.setValuesProperties(Report.StaticText.checkValuesStaticText);
                             break;
                         case 'Caja': ViewProperties.setValuesProperties(Report.Box.checkValuesBox);
                             break;
@@ -1154,7 +1157,9 @@
 
 
         /*campos de base de datos*/
-        fields= ["campo1","campo2","campo3"];
+        fields= [FieldsArray.join()];
+        //alert(FieldsArray.join());
+
         listFielCol3 = ["numberOfLeadingZeros( int )","numberOfTrailingZeros( int )","bitCount( int )","equals( Object ) boolean","toString()","toString( int, int )","toString( int )","hashCode()","reverseBytes( int )","compareTo( Object )","compareTo( Integer )","byteValue() byte","shortValue() short","intValue()","longValue() long","floatValue()","doubleValue()","valueOf( int )","valueOf( String )","valueOf( String, int )","toHexString( int )","compare( int, int )","decode( String )","reverse( int )","parseInt( String )","parseInt( String, int )","getInteger( String )","getInteger( String, int )","getInteger( String, Integer )","highestOneBit( int )","lowestOneBit( int )","rotateLeft( int, int )","rotateRight( int, int )","signum( int )","toBinaryString( int )","toOctalString( int )","getClass()"];
 
         variables = ["PAGE_NUMBER","COLUMN_NUMBER","REPORT_COUNT","PAGE_COUNT","COLUNM_COUNT"];
@@ -1256,5 +1261,104 @@
         $('.panel-group').on('shown.bs.collapse', toggleIcon);
 
 
+    /*validar si la consulta en campo de texto Report Query es valido y ejecutarlo*/
+     function reportQuery()
+        {           
+            var queryText = $("#contenido-archivo").text();
+
+                    //Eventos para obtener query
+
+                    var xhr = null;
+
+
+                        if(xhr != null)
+                        {
+                            xhr.abort();
+                        }
+
+                        var query =  queryText.toUpperCase();
+                        var sq = query.match("SELECT(.*)FROM");
+
+
+                        if(sq != null)
+                        {
+                            var fields = sq[1].split(',');
+                            var str = query.substring(query.indexOf('FROM')).split(' ');
+                            var table = str[1];
+
+                            //Se eliminan caracteres especiales del nombre de la tabla
+                            if(table != undefined)
+                            {
+                                table = table.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+                            }
+
+                           // console.log(query);
+                           // console.log(table);
+
+                            $.each(fields, function( index, value ) {
+                                var fieldCurrent = $.trim(value);
+
+                                $.post( "/reportes.php/validateQuery",{
+                                    'query':query,
+                                    'driver':dataConnection.database,
+                                    'database':dataConnection.database,
+                                    'user':dataConnection.user,
+                                    'password':dataConnection.password,
+                                    'host':dataConnection.host
+                                }, function( response ) {
+                                   // console.log("response validateQuery == "+response);
+                                });
+
+                                var data = {
+                                    'column':fieldCurrent ,
+                                    'table':table,
+                                    'driver':dataConnection.database,
+                                    'database':dataConnection.database,
+                                    'user':dataConnection.user,
+                                    'password':dataConnection.password,
+                                    'host':dataConnection.host
+                                };
+                                 
+                                    tableConsul = $("#bodyColumType");
+                                xhr = $.post( "/reportes.php/getTypeColumn",data, function( response ) {
+                              
+
+                                    if(response != '')
+                                    {
+
+                                        var type;
+                                        
+                                        $.each(response, function (index,col) {
+                                          FieldsArray.push(col.DATA_TYPE)
+                                            switch (col.DATA_TYPE)
+                                            {
+                                                case 'int':
+                                                    type = 'java.lang.Integer';
+                                                    break;
+                                                case 'varchar':
+                                                    type = 'java.lang.String';
+                                                    break;
+                                                default :
+                                                    type = 'java.lang.String';
+                                                    break;
+                                            }
+                                            bodyTags =  '<tr><td style="border: 1px solid #ccc;text-align: left">'+fieldCurrent
+                                            +'</td><td style="border: 1px solid #ccc;text-align: left">'+type+'</td>'
+                                            +'</td><td style="border: 1px solid #ccc;text-align: left">'+type+'</td></tr>';
+                                        });
+                                        tableConsul.append( bodyTags );
+
+               
+                                    }else
+                                    {
+                                        console.log('Error al obtener campos');
+                                    }
+                                });
+                         });
+
+                    }
+                         
+        }
+        
     </script>
 <?php $this->end()?>

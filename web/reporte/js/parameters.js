@@ -17,7 +17,7 @@ Report.Parameters = {
         console.log("Se indica a la vista que este elemento se esta usando");
         ViewProperties.elementUsed = Report.Parameters.idParameters;
         console.log("Clase elementFrame con el dibujo del Parameters");
-        element.className = "elementFrame elementReport";
+        element.className = "elementFrame  elementReport ";
         console.log("Se agregan los id de las propiedades que tiene este elemento");
         element.setAttribute("data-idProperties", "4,11");
         element.setAttribute("style", "display: none;");
@@ -41,8 +41,7 @@ Report.Parameters = {
 
 
         }
-
-        console.log("e.target.appendChild(element); AGREGA EL ELEMENTO DIBUJADO AL DIV DE ESTILOS");
+        console.log("e.target.appendChild(element); AGREGA EL ELEMENTO DIBUJADO AL DIV DE ESTILOS");    
         $('#ulParameters').append(element);
         /************************************FIN SE CREA LA FORMA DEL ELEMENTO****************************************************************************/
     },getMouseDown : function (e,t){

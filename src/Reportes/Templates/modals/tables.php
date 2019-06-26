@@ -3,7 +3,7 @@
     <div class="-dialog -lg" role="document">
         <div class="-content">
             <div class="-header">
-                <button type="button" class="close" data-dismiss="" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         
                 <p class="-title" >Report Query</p>
             </div>
             <div class="-body" style="padding: 0">
@@ -99,7 +99,7 @@
 
                                 <tr>
                                     <th style="width: 600px;max-width: 650px;">
-                                        <div id="contenido-archivo" contenteditable="true" style="width: 100%; max-width: 100%;height: 270px;border: 1px solid;overflow-y: auto;font-size: 12px;font-weight: 100;    min-width: 600px;"></div>
+                                        <div id="contenido-archivo" class="contenido-archivo" onkeyup="reportQuery()" contenteditable="true" style="width: 100%; max-width: 100%;height: 270px;border: 1px solid;overflow-y: auto;font-size: 12px;font-weight: 100;    min-width: 600px;"></div>
                                     </th>
                                     <th  style="min-width: 150px">
                                         <table style="width: 100%;margin-left: 5px;position: absolute;top: 0;">
@@ -117,7 +117,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <div contenteditable="false" style="width: 100%; max-width: 100%;height: 158px; border: 1px solid;">
+                                                    <div contenteditable="false" style="width: 100%; max-width: 100%;height: 160px; border: 1px solid;">
                                                         <ul style="list-style: none;padding:0"  class="ulParameters">
 
                                                         </ul>
@@ -189,52 +189,17 @@
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 
                         <table class="tabladatos" style="width: 100%;margin-top: 2rem;">
-                            <tbody>
-
-                            <tr>
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-
-                            </tr>
-                            <tr>
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-
-                            </tr>
-                            <tr>
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                            </tr>
-                            <tr>
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                            </tr>
-                            <tr>
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                                <td style="border: 1px solid #ccc;text-align: left">campo 1</td>
-
-                            </tr>
-
-                            </tbody>
+                            <thead>
+                                <tr>
+                                    <th>Fiel name</th>
+                                    <th>Field type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyColumType">
+                               
+                           </tbody>
+                        
                         </table>
 
                     </div>

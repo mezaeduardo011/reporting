@@ -29,6 +29,11 @@ Report.EventsDragDrop = {
                 Report.StaticText.newStaticText(e);
                 Report.PanelLeft.addTitle(Report.StaticText.idStaticText);
                 break;
+			case 'Parametro': 
+		    	Report.Parameters.main('staticText');
+		    	Report.Parameters.newParameters(e);
+		    	Report.PanelLeft.addTitle(Report.Parameters.idParameters);
+		    break;                
 		}	     	   
 	}, elementDrop : function (e,father){
         e.preventDefault();

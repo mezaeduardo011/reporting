@@ -367,6 +367,7 @@ function listElement(addUl)
             attr = 'data-id=\'15\' draggable=\'true\' ondragstart=\'Report.EventsDragDrop.drag(event)\'';
         }
 
+alert();
         ulElements.append(
             "<li class='"+addUl+"'>" +
             "<a data-field=\'"+val+"\' data-quien="+addUl+" id='li"+val+index+"' data-element='Texto Estático' "+attr+">" +
@@ -401,6 +402,7 @@ function loadElements(){
             {
                 attr = 'data-id=\'15\' draggable=\'true\' ondragstart=\'Report.EventsDragDrop.drag(event)\' data-element=\'Texto Estático\'';
             }
+            
             ulElements.append(
                 "<li class='"+nameUL+" treeview menu-open sub"+val+"' >" +
                 "<a data-field=\'"+val+"\' data-quien="+nameUL+"  id='li"+val+"' class='editOptionElemet elementPanel' "+attr+">" +

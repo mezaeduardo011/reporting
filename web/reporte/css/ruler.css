@@ -1,18 +1,30 @@
 .ruler {
- position: relative;
- width: 595px;
- /* margin: 20px auto; */
- margin: 2%;
- margin-left: 10%;
- background: #fff;
- height: 14px;
+    position: relative;
+/*width: 873px;*/
+    width:calc(100% - 17%);
+    margin: 1%;
+/* margin-left: 9%;*/
+    margin-left: calc(100% - 93%);
+    background: linear-gradient(to bottom, rgba(212,212,212,1) 0%, rgba(230,230,230,1) 2%, rgba(245,245,245,1) 51%, rgba(245,245,245,1) 100%);
+    height: 23px;
+}
+
+.ruler-vertical {
+    transform: rotate(270deg);
+    margin-left:  calc(100% - 148.7%) !important;
+    position: relative;
+    width: 873px;
+    margin: 1%;
+    background: linear-gradient(to bottom, rgba(212,212,212,1) 0%, rgba(230,230,230,1) 2%, rgba(245,245,245,1) 51%, rgba(245,245,245,1) 100%);
+    height: 23px;
+    margin-top: calc(100% - 49%) !important;
 }
 
 .ruler .cm,
 .ruler .mm {
  position: absolute;
  border-left: 1px solid #555;
- height: 14px;
+ height: 7px;
  width: 10%;
 }
 .ruler .cm:after {
@@ -152,3 +164,22 @@
 .content-wrapper {
     background: #ccc !important;
 }
+
+.cor-top
+{
+	height: 20px;
+    width: calc(100%);
+    position: absolute;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(235,235,235,1) 0%, rgba(235,235,235,1) 0%, rgba(204,202,204,1) 38%, rgba(204,202,204,1) 100%);
+}
+
+.cor-vertical {
+    height: 4%;
+    width: calc(100%);
+    transform: rotate(90deg);
+    margin-left: calc(100% - 148.9%) !important;
+    position: absolute;
+    margin-top: calc(100% - 55%) !important;
+    background: linear-gradient(to bottom, rgba(235,235,235,1) 0%, rgba(235,235,235,1) 0%, rgba(204,202,204,1) 38%, rgba(204,202,204,1) 100%);
+}    

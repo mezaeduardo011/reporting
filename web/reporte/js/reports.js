@@ -16,23 +16,23 @@ Report = {
 	},addIconsResize : function (element) {
         var divArrow = document.createElement("div");
         divArrow.className= "ui-resizable-handle ui-resizable-n customRes";
-        divArrow.style = "width: 10px;top: -13px;";
+        divArrow.style = "width: 10px;height: 10px;top: -13px;";
         element.appendChild(divArrow);
         var divArrow = document.createElement("div");
         divArrow.className= "ui-resizable-handle ui-resizable-e";
-        divArrow.style = "height: 10px;right: -13px;";
+        divArrow.style = "width: 10px;height: 10px;right: -13px;";
         element.appendChild(divArrow);
         var divArrow = document.createElement("div");
         divArrow.className= "ui-resizable-handle ui-resizable-s";
-        divArrow.style = "width: 10px;bottom: -13px;";
+        divArrow.style = "width: 10px;height: 10px;bottom: -13px;";
         element.appendChild(divArrow);
         var divArrow = document.createElement("div");
         divArrow.className= "ui-resizable-handle ui-resizable-w";
-        divArrow.style = "height: 10px;left: -13px;";
+        divArrow.style = "width: 10px;height: 10px;left: -13px;";
         element.appendChild(divArrow);
         var divArrow = document.createElement("div");
         divArrow.className= "ui-resizable-handle ui-resizable-ne";
-        divArrow.style = "width: 10px;right: -13px;";
+        divArrow.style = "width: 10px;height: 10px;right: -13px;";
         element.appendChild(divArrow);
 
         var divArrow = document.createElement("div");
@@ -47,7 +47,7 @@ Report = {
 
         var divArrow = document.createElement("div");
         divArrow.className= "ui-resizable-handle ui-resizable-nw";
-        divArrow.style = "width: 10px;top: -13px;";
+        divArrow.style = "width: 10px;top: -6px;left: -12px;";
         element.appendChild(divArrow);
 
     },resizableElements : function () {

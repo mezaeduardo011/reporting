@@ -60,16 +60,16 @@ $( document ).ready(function() {
   }
 
   function createRulerReportVertical(){
-    var cm_div_number = 18;
+    var cm_div_number = 10;
     var mm_div_number = 9 * cm_div_number;
     var count = 0;
     var cm_array = new Array();
     var ruler_div = document.createElement("div");
-    ruler_div.className = "vertical-menu";
+    ruler_div.className = "ruler ruler-vertical";
 
     for (var i = 0; i < cm_div_number; i++) {
       var cm_element = document.createElement("div");
-      cm_element.className = "cm_vertical";
+      cm_element.className = "cm";
       cm_array.push(cm_element);
     }
 
@@ -77,12 +77,13 @@ $( document ).ready(function() {
       for (var j = 0; j < 9; j++) {
         count++
         var mm_element = document.createElement("div");
-        mm_element.className = "mm_vertical";
+        mm_element.className = "mm";
 
         mm_element.onclick = function() {
           posicion = $(this).offset();
-          createLineHorizontal(posicion);
+          createLineVertical(posicion);
         };
+
         cm_array[i].appendChild(mm_element);
       }
     }
@@ -92,7 +93,7 @@ $( document ).ready(function() {
     }
 
     var cm_element_last = document.createElement("div");
-    cm_element_last.className = "cm_vertical";
+    cm_element_last.className = "cm";
     ruler_div.appendChild(cm_element_last);
     document.getElementById("reglas_reporte").appendChild(ruler_div);
   }

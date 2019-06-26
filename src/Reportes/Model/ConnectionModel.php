@@ -94,7 +94,7 @@ class ConnectionModel extends Main
         return $response;
     }
 
-    public function getTypeColumn($conn,$table, $column )
+    public function getTypeColumn($conn, $column,$table)
     {
         $response = null;
         $query = "SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table' AND COLUMN_NAME = '$column';";
